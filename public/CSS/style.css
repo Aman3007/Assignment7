@@ -1,4 +1,4 @@
-body {
+body,html {
 margin: 0;
 padding: 0;
   font-family: sans-serif;
@@ -7,6 +7,8 @@ padding: 0;
 background-repeat: no-repeat;
 background-size: cover;
 min-height: 100vh;
+  max-width: 100%;
+  overflow-x: hidden;
 font-size: 1.3rem;
 display: flex;
 flex-direction: column;
@@ -19,7 +21,7 @@ flex-direction: column;
   width: 100%;
   padding-top: 4rem;
   padding-bottom: 4rem;
- padding-right: 2rem;
+
   box-shadow: 4px 4px 4px 4px gray;
 }
 .box1{
@@ -30,8 +32,8 @@ justify-content: center;
 
 .box2{
   width: 100%;
-padding-left: 4rem;
-padding-right: 2rem;  
+padding-left: 1rem;
+
 }
 
 
@@ -165,7 +167,9 @@ input[type="checkbox"]:checked +p{
     margin-bottom: 3rem;
     margin-right: 1rem;
   }
-
+.box2 {
+  padding: 0 1rem;
+}
 .box2 form{
   padding-right: 1rem;
 }
@@ -197,3 +201,9 @@ input[type="checkbox"]:checked +p{
   }
 }
 
+@media screen and (max-width: 480px) {
+  header, footer {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+}
