@@ -9,13 +9,18 @@
 //  var example="working";
  var items =[];
  var idCounter=1;
+
 app.get("/",(req,res)=>{
-    res.render("list",{exej:items})
+    res.render("list",{exej:items,alertMsg: null  })
 })
 app.post("/add",(req,res)=>{
     const {todo,priority}=req.body;
-     if (todo.trim() === "") 
-        {return res.redirect("/");}
+   if (!todo || todo.trim() === "") {
+        return res.render("list", {
+            exej: items,       // existing list
+            alertMsg: " Todo field cannot be empty."
+        });
+    }
      else{
          items.push({ id: idCounter++, todo, priority });
         res.redirect("/");
@@ -28,7 +33,7 @@ app.get("/filter", (req, res) => {
   const filteredTodos = filter
     ? items.filter((todo) => todo.priority === filter)
     : items;
-  res.render("list", { exej: filteredTodos });
+  res.render("list", { exej: filteredTodos ,alertMsg: null });
 });
 
 app.get("/edit/:id", (req, res) => {
