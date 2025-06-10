@@ -48,3 +48,11 @@
   </div>
 
   <%- include("partials/footer") %>
+
+<% if (alertMsg) { %>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      alert("<%= alertMsg %>");
+    });
+  </script>
+<% } %>
