@@ -1,91 +1,216 @@
-body{
-   margin: 0;
-    padding: 0;
-     height: 100vh;
-   
-     display: flex;
+body {
+margin: 0;
+padding: 0;
+  font-family: sans-serif;
+  background-color: rgb(250, 248, 248);
 
-    justify-content: center;
-    padding-top: 2rem;
-    background-image:  linear-gradient(29deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
-    background-repeat: no-repeat;
-    background-position: fixed;
-    background-size: cover;
-};
-input{
-  display: block;
+background-repeat: no-repeat;
+background-size: cover;
+min-height: 100vh;
+font-size: 1.3rem;
+display: flex;
+flex-direction: column;
 }
 
 .container{
-      display: flex;
-      flex-direction: column;
-      
-      align-items: center;
-      width: 30rem;
+  background-color:rgb(228, 225, 225);
+ flex: 1;
+
+  width: 100%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+ 
+  box-shadow: 4px 4px 4px 4px gray;
+}
+.box1{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.box2{
+  width: 100%;
+padding-left: 4rem;
+  
+}
+
+header {
+  text-align: center;
+  padding: 1rem;
+  color: white;
+  background-color: #5e5c5c;
+}
+
+
+footer{
+  width: 100%;
+  position: relative; 
+  bottom: 0;
+  color: white;
+  text-align: center;
+  background-color: #091b4d;
+  padding: 0.1rem 0;
+
+}
+
+a{
+  text-decoration: none;
+ margin-left: 1rem;
+}
+
+.check{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+ align-items: center;
+ margin: 0.5rem;
+}
+
+.delete{
+  background-color: #ff4d4d;    
+  color: white;
+  border: none;
+  padding: 4px 4px;
+  font-weight: bold;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  
+}
+input{
+  width: 30%;
+  padding: 0.5rem;
+  border-radius: 5%;
+}
+select{
+
+  padding: 0.5rem;
+ 
+}
+.addbtn{
+  font-size: 1rem;
+  padding: 0.4rem;
+  background-color: lightblue;
+  border: none;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     cursor: pointer;
+       transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.addbtn:hover{
+  background-color: rgb(114, 212, 245);
+}
+.check form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+ 
     
 }
 
-.box1{
-  margin-left: 2.7rem;
+.manipulate{
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: black;
+  flex-direction: row ;
+}
+.tick{
+width: 1.2rem;
+margin-right: 0.5rem; 
+}
+
+form {
+  margin-bottom: 1rem;
+}
+
+.adding,.filter{
   margin-bottom: 2rem;
-  width: 12rem;
-  background:linear-gradient(0deg,rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
-  border-radius: 5%;
-  padding: 20px;
-  box-shadow: 5px 5px 10px black;
-  border: 2px solid black;
 }
 
 
-input{
-  width: 20rem;
-  height: 2.3rem;
-  border-radius: 2%;
-}
-p{
-  font-size: 1.5rem;
- display: inline-block;
-}
 
-form{
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-button{
-   display: flex;
-  align-items: center;
-  justify-content: center;
-      height: 2.3rem;
-      width: 2.3rem;
-      font-size: 1.5rem;
-      margin-left: 10px;
-      color: black;
-      background-color: white;
-      border:  1px solid black;
-      border-radius: 50%;
-      box-shadow: 2px 2px 3px black;
-}
-button:hover{
-color: white;
-      background-color: black;
-}
-.check{
-  margin-left: -9rem;
- display: flex;
- flex-direction: row;
- align-items: center;
-   line-height: 0.8rem;
-}
-p{
-  margin-left: -100px;
-}
 input[type="checkbox"]:checked +p{
   text-decoration: line-through;
 
+}
+
+
+@media screen and (max-width: 1024px) {
+  input {
+    width: 50%;
+  }
+
+  .check {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .check form {
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  .box2 {
+    padding-left: 2rem;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+  .adding,
+  .filter {
+    margin-bottom: 1rem;
+  }
+
+  input,
+  select,
+  .addbtn {
+    width: 90%;
+    margin-bottom: 0.5rem;
+  }
+
+  .check {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .manipulate {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  header, footer {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .check {
+    padding: 0.5rem;
+  }
+
+  .box2 {
+    padding-left: 1rem;
+  }
+
+  input,
+  select,
+  .addbtn {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .addbtn {
+    padding: 0.5rem;
+  }
 }

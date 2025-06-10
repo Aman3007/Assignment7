@@ -1,34 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
-    <title>To-Do-List</title>
-</head>
-<body>
+<%- include("partials/header") %>
+
   <div class="container">
- <div class="box1">
-        <h1>To-Do-List</h1>
+    <div class="box1">
+      <h1>To-Do-List</h1>
     </div>
     <div class="box2">
-      <% for(let i =0; i< exej.length;i++){ %>
-       <%  if( exej[i] ==""){ %>
-       <%    continue; %>
-       <%  } %>
+      <% exej.forEach(val=> { %>
         <div class="check">
-              <input class="tick"  type="checkbox">
-        <p><%= exej[i] %></p>
+          <form action="">
+            <input class="tick" type="checkbox">
+            <p>
+              <%= val.todo %>-<%= val.priority %>
+            </p>
+          </form>
+          <div class="manipulate">
+            <form action="/delete/<%= val.id %>" method="POST">
+              <button class="delete" type="submit">Delete</button>
+            </form>
+            <a class="edit" href="/edit/<%= val.id %>">Edit</a>
+          </div>
         </div>
-    
-       <% } %> 
+        <% }) %>
 
-      <form action="/" method="POST">
-        <input type="text" name="todo" placeholder="enter the task">
-        <button type="submit">+</button>
-      </form>
-  </div>
-   
+          <form action="/add" method="POST" class="adding">
+            <input type="text" name="todo" placeholder="enter the task">
+            <select name="priority">
+              <option value="null">mark priority</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <button class="addbtn" type="submit">+</button>
+          </form>
+
+          <form action="/filter" method="GET" class="filter">
+            <label>Filter:</label>
+            <select name="priority">
+              <option value="">All</option>
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select>
+            <button type="submit">Apply</button>
+          </form>
     </div>
-</body>
-</html>
+
+  </div>
+
+  <%- include("partials/footer") %>
